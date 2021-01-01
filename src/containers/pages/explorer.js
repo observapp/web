@@ -18,6 +18,12 @@ export default class Explorer extends React.Component {
     let uploadedFiles = await this.getFiles();
     let seriesLibrary = await this.getSeries();
     let data = await this.getPage();
+    if (!uploadedFiles) {
+      uploadedFiles = [];
+    }
+    if (!seriesLibrary) {
+      seriesLibrary = [];
+    }
     console.log(data);
     this.setState({
       data: data,

@@ -36,6 +36,12 @@ export default class Series extends React.Component {
   async componentDidMount() {
     let uploadedFiles = await this.getFiles();
     let seriesData = await this.getSeries();
+    if (!uploadedFiles) {
+      uploadedFiles = [];
+    }
+    if (!seriesData) {
+      seriesData = [];
+    }
     this.setState({
       data: seriesData,
       uploadedFiles: uploadedFiles,
